@@ -8,7 +8,7 @@ import { RentalResponseModel } from '../models/rentalResponseModel';
 })
 export class RentalService{
 
-  apiUrl = 'https://localhost:44372/api/rental/getall';
+  apiUrl = 'https://localhost:44372/api/rental/getrentaldetail';
 
   constructor(private httpClient: HttpClient) { }
 
