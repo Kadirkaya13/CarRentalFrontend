@@ -9,6 +9,7 @@
         <th>Kullanıcı Soyadı</th>
         <th>E-Mail</th>
         <th>Durum</th>
+        
       </tr>
     </thead>
     <tr *ngFor="let user of users">
@@ -17,5 +18,7 @@
       <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.status }}</td>
+      
+     
     </tr>
   </table>
