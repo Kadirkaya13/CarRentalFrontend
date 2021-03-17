@@ -1,25 +1,21 @@
 <div class="container">
     <app-navi></app-navi>
     <div class="row">
-        <div class="col-md-9">
-            <app-car></app-car>
+      <div class="col-md-3">
+        <div class="mt-5">
+          <app-brand></app-brand>
         </div>
-        <br>
-        <div class="col-md-3">
-            <app-user></app-user>
+        <div class="mt-5">
+          <app-color></app-color>
         </div>
-        <br>
-        <div class="col-md-3">
-            <app-rental></app-rental>
-        </div>
-        <br>
-        <div class="col-md-3">
-            <app-brand></app-brand>
-        </div>
-        <br>
-        <div class="col-md-3">
-            <app-color></app-color>
-        </div>
-            <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-9">
+        
+        <h1 style="text-align: center;">Arabalar</h1>
+        <app-car></app-car>
+         <h1 style="text-align: center;">Kiralamalar</h1>
+        <app-rental></app-rental>
+      </div>
     </div>
-</div>
+    <router-outlet></router-outlet>
+  </div>

@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center">
+    <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div *ngIf="dataLoaded==true" class="card" style="width: 18rem;" >
+    <div *ngFor="let carImage of carImages" >
+    <img class="card-img-top" src="{{imageApiUrl}}/{{carImage.imagePath}}" alt="Card image cap">
+  </div>
+    <div class="card-body">
+      <h5 class="card-title">Araç Resmi</h5>
+      <p class="card-text"></p>
+    </div>
+  
+  </div>
