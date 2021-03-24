@@ -2,6 +2,17 @@
   <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
+
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Ürün ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+     placeholder="arama ifadesi giriniz">
+  </div>
+
+  <div *ngIf="filterText" class="alert alert-warning"  >
+    {{filterText}} aradınız
+  </div>
+
 </div>
 <table *ngIf="dataLoaded==true" class="table table-striped">
   <thead>
@@ -15,9 +26,9 @@
   </thead>
   <tbody style="width: 100;" >
     <tr (click)="setCurrentCar(car)"
-    routerLink="/carImages/car/{{car.carId}}" *ngFor="let car of cars" 
-     [class]="getCurrentCarClass(car)" >
-      <td>{{car.brandName}}</td>
+    routerLink="/carImages/car/{{car.carId}}" *ngFor="let car of cars | filter:filterText"  
+     [class]="getCurrentCarClass(car)">
+      <td>{{car.brandName }}</td>
       <td>{{car.modelYear}}</td>
       <td>{{car.dailyPrice}}</td>
       <td>{{car.colorName}}</td>

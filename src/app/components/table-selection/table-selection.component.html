@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center">
+  <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="container">
+    <div class="col col-4">
+      <select [(ngModel)]="selectedBrand" class="form-select" aria-label="Default select example">
+        <option *ngFor="let brand of brands" [value]="brand.brandId" selected="{{getSelectedBrand(brand.brandId)}}">
+          {{brand.brandName}}</option>
+      </select>
+    </div>
+    <br>
+    <div class="col col-4">
+      <select [(ngModel)]="selectedColor" class="form-select" aria-label="Default select example">
+        <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)">
+          {{color.colorName}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="horizontal">
+  <div class="col col-2">
+    <a routerLink="/cars/filter/{{selectedBrand}}/{{selectedColor}}" class="btn btn-warning">Filtrele</a>
+  </div>
+  <br>
+  <div class="col col-2">
+    <a routerLink="/cars" class="btn btn-danger">Temizle</a>
+  </div>
+</div>
+</div>
