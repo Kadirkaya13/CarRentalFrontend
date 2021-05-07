@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car-service.service';
+import { ColorComponent } from '../color/color.component';
 
 @Component({
   selector: 'app-car',
@@ -70,4 +71,7 @@ export class CarComponent implements OnInit {
       return "list-group-item";
     }
   }
+
+
+  
 }

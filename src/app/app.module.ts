@@ -23,6 +23,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
     CarAddComponent,
     ColorAddComponent,
     BrandAddComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup ,FormBuilder,FormControl,Validator, Validators} from "@angular/forms"
 import { ToastrService } from 'ngx-toastr';
+import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
+import { Color } from 'src/app/models/color';
+import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car-service.service';
 import { CardService } from 'src/app/services/card.service';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-car-add',
@@ -12,22 +17,31 @@ import { CardService } from 'src/app/services/card.service';
 export class CarAddComponent implements OnInit {
 
   carAddForm:FormGroup;
+  currentCar:Car;
+  colors:Color[]=[]
+  brands:Brand[]=[]
+  dataLoaded=false;
 
   constructor(private formBuilder:FormBuilder,
     private carService:CarService,
-    private toastrService:ToastrService) { }
+    private toastrService:ToastrService,
+    private colorService:ColorService,
+    private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.createCarAddForm();
+    this.getColors();
+    this.getBrands();
   }
   createCarAddForm(){
     this.carAddForm=this.formBuilder.group({
-      brandId:["",Validators.required],
-      colorId:["",Validators.required],
+      brandName:["",Validators.required],
+      colorName:["",Validators.required],
       carName:["",Validators.required],
       modelYear:["",Validators.required],
       dailyPrice:["",Validators.required],
       description:["",Validators.required],
+      findeksNote:["",Validators.required],
     })
   }
   add(){
@@ -50,4 +64,17 @@ export class CarAddComponent implements OnInit {
     }
   }
 
+
+  getColors() {
+    this.colorService.getColors().subscribe(response=>{
+      this.colors = response.data
+      this.dataLoaded = true;
+    })
+  }
+  getBrands() {
+    this.brandService.getBrands().subscribe(response=>{
+      this.brands = response.data;
+      this.dataLoaded = true;
+    })
+  }
 }

@@ -9,43 +9,53 @@
                     <div class="mb-3">
                         <label for="carName">Araç adı</label>
                         <div class="form-group">
-                            <input type="text" id="carName" formControlName="carName"
-                            class="form-control" placeholder="Araç adı">
+                            <input type="text" id="carName" formControlName="carName" class="form-control"
+                                placeholder="Araç adı">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="colorId">Renk</label>
-                        <div class="form-group">
-                            <input type="number" id="colorId" formControlName="colorId"
-                            class="form-control" placeholder="Renk">
-                        </div>
+                        <label for="colorName">Renk</label>
+                        <select formControlName="colorName" class="form-select" aria-label="Default select example"
+                            id="colorName">
+                            <option [ngValue]="color.colorId" *ngFor="let color of colors" value="1">
+                                {{ color.colorName }}</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="brandId">Marka</label>
-                        <div class="form-group">
-                            <input type="number" id="brandId" formControlName="brandId"
-                            class="form-control" placeholder="Marka">
-                        </div>
+                        <label for="brandName">Marka</label>
+                        <select formControlName="brandName" class="form-select" aria-label="Default select example"
+                            id="brandName">
+                            <option [ngValue]="brand.brandId" *ngFor="let brand of brands" value="1">
+                                {{ brand.brandName }}
+                            </option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="modelYear">Model tarihi</label>
                         <div class="form-group">
-                            <input type="date" id="modelYear" formControlName="modelYear"
-                            class="form-control" placeholder="Model yılı">
+                            <input type="date" id="modelYear" formControlName="modelYear" class="form-control"
+                                placeholder="Model yılı">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="dailyPrice">Fiyatı</label>
                         <div class="form-group">
-                            <input type="number" id="dailyPrice" formControlName="dailyPrice"
-                            class="form-control" placeholder="Fiyat">
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"
+                                placeholder="Fiyat">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="description">Açıklama</label>
                         <div class="form-group">
-                            <input type="text" id="description" formControlName="description"
-                            class="form-control" placeholder="Açıklamna">
+                            <input type="text" id="description" formControlName="description" class="form-control"
+                                placeholder="Açıklamna">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="findeksNote">Açıklama</label>
+                        <div class="form-group">
+                            <input type="number" id="findeksNote" formControlName="findeksNote" class="form-control"
+                                placeholder="Findeks notu">
                         </div>
                     </div>
                 </form>

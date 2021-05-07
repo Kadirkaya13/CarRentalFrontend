@@ -1,12 +1,24 @@
 <div class="col-md-7 mx-auto">
     <div class="card-body" style="background-color: whitesmoke; position: relative;">
         <h5 class="card-title">Kredi kartı ile kiralama</h5>
+        <label for="rentDate">Alış tarihi</label>
+        <input type="date" class="form-control" id="rentDate">
+        <label for="turnDate">Dönüş tarihi</label>
+        <input type="date" class="form-control" id="turnDate">
         <input type="text" [(ngModel)]="nameOnTheCard" class="form-control" id="nameText"
             placeholder="Kartın üzerindeki isim" style="margin-top: 20px;">
         <input type="text" [(ngModel)]="cardNumber" class="form-control" id="numberText" placeholder="Kart numarası"
             style="margin-top: 20px;">
         <input type="text" [(ngModel)]="cardCvv" class="form-control" id="cvvText" placeholder="Cvv"
             style="margin-top: 20px;">
+            <br>
+            <label for="takeAdress">Alış adresi</label>
+            <br>
+        <textarea name="takeAdress" id="takeAdress" cols="30" rows="3" placeholder="Adres girin"></textarea>
+        <br>
+        <label for="leftAdress">Bırakma adresi</label>
+        <br>
+        <textarea name="leftAdress" id="leftAdress" cols="30" rows="3" placeholder="Adres girin"></textarea>
         <button type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;"
             (click)="rentACar()">Kirala</button>
         
