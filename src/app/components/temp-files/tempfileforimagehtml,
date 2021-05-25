@@ -1,0 +1,40 @@
+<!-- <header>
+    <app-navi></app-navi>
+  </header>
+  
+  <form [formGroup]="signup" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label>Araç id</label>
+      <input type="carId" formControlName="carId">
+    </div>
+  
+    <app-file-upload formControlName="image" [progress]="progress"></app-file-upload>
+  
+    <button>Submit</button>
+  </form> -->
+
+  <!-- <form [formGroup]="imageAddForm">
+    <div class="form-group">
+
+      <input type="file"  id="ımage" formControlName="image"
+    class="form-control" placeholder="Resim" >
+
+      <input type="number" id="carId" formControlName="carId"
+    class="form-control" placeholder="Araç id">
+
+    </div>
+    <button type="button" (click)="add()">Yükle</button>
+    
+  </form>-->
+
+  
+<form [formGroup]="imageAddForm">
+  <div class="form-group">
+    <input type="file"  id="ımage" formControlName="image"
+  class="form-control" placeholder="Resim" >
+    <input type="number" id="carId" formControlName="carId"
+  class="form-control" placeholder="Araç id">
+  </div>
+  <button type="button" (click)="add()">Yükle</button>
+</form>

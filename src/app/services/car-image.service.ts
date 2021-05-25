@@ -20,4 +20,5 @@ export class CarImageService {
   add(carImage:CarImage):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(environment.apiUrl+"carImages/add",carImage);
   }
+  
 }

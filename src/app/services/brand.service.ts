@@ -20,4 +20,5 @@ export class BrandService {
   add(brand:Brand):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(environment.apiUrl+"brands/add",brand)
   }
+  
 }

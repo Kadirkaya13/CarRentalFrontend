@@ -1,40 +1,58 @@
-<!-- <header>
-    <app-navi></app-navi>
-  </header>
-  
-  <form [formGroup]="signup" (ngSubmit)="submit()">
+<header>
+  <app-navi></app-navi>
+</header>
 
-    <div class="form-group">
-      <label>Araç id</label>
-      <input type="carId" formControlName="carId">
+<body>
+
+<div class="d-flex" id="wrapper">
+
+  <div id="page-content-wrapper" style="margin-left: 35%;">
+
+    <div class="container-fluid">
+      <br>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Arabaya Resim Ekle</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="imageAddForm">
+              <div class="mb-3">
+                <div class="form-group">
+                  <label>Araba Seçiniz</label>
+
+                  <select [(ngModel)]="productFilter" class="form-select" id="carId"  name="file"
+                    formControlName="carId" aria-label="Floating label select example">
+                    <option *ngFor="let car of cars"
+                      [ngValue]="car.carId"
+                      selected="{{getSelectedProduct(car.carId)}}">
+                      {{car.carId}} : {{car.brandName}} / {{car.carName}} / {{car.colorName}}</option>
+                  </select>
+
+                  <!-- <select class="form-control" formControlName="CarId" name="file">
+                    <option *ngFor="let car of cars" [ngValue]="car.carId">{{car.carId}} : {{car.brandName}} / {{car.carName}} / {{car.colorName}}</option>
+                  </select> -->
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-group">
+                  <div class="form-group">
+                    <input type="file" (change)="uploadFile($event)">
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="card-footer">
+            <div class="form-group">
+              <button class="btn btn-success btn-block btn-lg" (click)="submitForm()">Resmi Ekle</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  
-    <app-file-upload formControlName="image" [progress]="progress"></app-file-upload>
-  
-    <button>Submit</button>
-  </form> -->
-
-  <!-- <form [formGroup]="imageAddForm">
-    <div class="form-group">
-
-      <input type="file"  id="ımage" formControlName="image"
-    class="form-control" placeholder="Resim" >
-
-      <input type="number" id="carId" formControlName="carId"
-    class="form-control" placeholder="Araç id">
-
-    </div>
-    <button type="button" (click)="add()">Yükle</button>
-    
-  </form>-->
-
-  
-<form [formGroup]="imageAddForm">
-  <div class="form-group">
-    <input type="file"  id="ımage" formControlName="image"
-  class="form-control" placeholder="Resim" >
-    <input type="number" id="carId" formControlName="carId"
-  class="form-control" placeholder="Araç id">
   </div>
-  <button type="button" (click)="add()">Yükle</button>
-</form>
+
+</div>
+</body>

@@ -1,12 +1,9 @@
-import { HttpClient,HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {FormGroup ,FormBuilder,FormControl,Validator, Validators} from "@angular/forms"
-import { ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { CarImage } from 'src/app/models/carImage';
-import { CarImageService } from 'src/app/services/car-image.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
+import {Car} from "../../models/car";
 import { CarService } from 'src/app/services/car-service.service';
-import { environment } from 'src/environments/environment';
+import { CarImageService } from 'src/app/services/car-image.service';
 
 @Component({
   selector: 'app-car-image-add',
@@ -14,66 +11,68 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./car-image-add.component.css']
 })
 export class CarImageAddComponent implements OnInit {
-  selectedFile:File=null;
-  constructor(private httpClient:HttpClient,private formBuilder:FormBuilder,private carSevice:CarService,
-    private carImageService:CarImageService,private toastrService:ToastrService,private activetedRoute:ActivatedRoute) { }
-  carImage:CarImage;
   imageAddForm:FormGroup;
-  carId?:number;
+  productFilter: Number;
+  cars:Car[]=[];
+  selectedFile : File = null
+
+  constructor(private carService:CarService,
+              private formBuilder:FormBuilder,
+              private toastrService:ToastrService,
+              private carImageService:CarImageService) { }
 
   ngOnInit(): void {
-    this.createCarImageAddForm();
-    this.activetedRoute.params.subscribe(params=>{
-      if(params["carId"]){
-        this.carId=parseInt(params["carId"]);
-      }
-    })
+    this.load();
   }
 
-  onFileSelected(event:any){
-    this.selectedFile=<File>event.target.files[0];
-    this.carImage.carId=event.target.value;
+  load(){
+    this.getCarList();
+    this.createImageAddForm();
   }
 
-  createCarImageAddForm(){
-    this.imageAddForm=this.formBuilder.group({
-      carId:["",Validators.required],
-      ımage:["",Validators.required ]
-    })
-  }
-  
-  onUpload(){
-    const formData = new FormData().append("image",this.selectedFile,this.selectedFile.name);
-    this.httpClient.post(environment.apiUrl+"carImages/add",formData,{
-      reportProgress:true,
-      observe:"events"
-    }).subscribe(event=>{
-      if (event.type== HttpEventType.UploadProgress) {
-        console.log("upload progress: " +Math.round(event.loaded/event.total*100)+"%")
-      }else if(event.type === HttpEventType.Response){
-        console.log(event)
-      }
-      
+  createImageAddForm() {
+    this.imageAddForm = this.formBuilder.group({
+      carId: ['',Validators.required],
+      file: [null],
     });
   }
-  add(){
+
+  getCarList(){
+    this.carService.getCars().subscribe(response=>{
+      this.cars = response.data
+      console.log(response.data);
+    })
+  }
+
+  uploadFile(event:any) {
+    const carImage = (event.target as HTMLInputElement).files[0];
+    this.imageAddForm.patchValue({
+      file: carImage
+    });
+    this.imageAddForm.get('file').updateValueAndValidity()
+  }
+
+
+  submitForm() {
     if(this.imageAddForm.valid){
-      let brandModel =Object.assign({},this.imageAddForm.value);
-      this.carImageService.add(brandModel).subscribe(response=>{
-        console.log(response);
-        this.toastrService.success(response.message,"Başarılı!")
-      },responseError=>{
-        if(responseError.error.Errors.length>0)
-        {
-          console.log(responseError.error.Errors)
-          for (let i = 0; i <responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
-          }
-        }
+      var formData: any = new FormData();
+      formData.append("file", this.imageAddForm.get('file').value);
+      formData.append("carId", this.imageAddForm.get('carId').value);
+      console.log(formData);
+      this.carImageService.add(formData).subscribe(response=>{
+        this.toastrService.success(response.message);
+      },error=>{
+        this.toastrService.error(error.error.message);
       })
     }else{
-      this.toastrService.error("Formunuz eksik","Dikkat!")
+      this.toastrService.error('Form Bilgileriniz Eksik');
     }
   }
-  
+
+  getSelectedProduct(carId: Number) {
+    if (this.productFilter == carId)
+      return true;
+    else
+      return false;
+  }
 }

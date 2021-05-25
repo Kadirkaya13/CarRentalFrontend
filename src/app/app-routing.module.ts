@@ -33,7 +33,6 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"cars/carDetail/:carId",component:CarDetailComponent},
   {path:"about/company",component:AboutCompanyComponent},
-  {path:"fileupload",component:FileUploadComponent},
   
 
 ];
