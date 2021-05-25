@@ -22,7 +22,7 @@ export class CarImageComponent implements OnInit {
   currentImage : CarImage;
 
   dataLoaded = false;
-  imageBasePath ='https://localhost:44372/images/';
+  imageBasePath ='https://localhost:44372/Images/';
 
   constructor(
     private carService:CarService,
@@ -34,7 +34,7 @@ export class CarImageComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if(params["carId"]){
         this.getCarDetail(params["carId"]);
-        this.getImagesByCarId(params["carId"])
+       // this.getImagesByCarId(params["carId"])
       }
       //this.getImagesByCarId();
      
@@ -47,39 +47,39 @@ export class CarImageComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-  getImagesByCarId(carId:number){
-    this.imageService.getCarImages(carId).subscribe(response => {
-      this.carImages=response.data;
-      this.dataLoaded=true;
-    })
-  }
+  // getImagesByCarId(carId:number){
+  //   this.imageService.getCarImages(carId).subscribe(response => {
+  //     this.carImages=response.data;
+  //     this.dataLoaded=true;
+  //   })
+  // }
 
-  getCurrentImageClass(image:CarImage){
-    if(image==this.carImages[0]){
-      return "carousel-item active"
-    } else {
-      return "carousel-item"
-    }
-  }
+//   getCurrentImageClass(image:CarImage){
+//     if(image==this.carImages[0]){
+//       return "carousel-item active"
+//     } else {
+//       return "carousel-item"
+//     }
+//   }
 
-  getButtonClass(image:CarImage){
-    if(image==this.carImages[0]){
-      return "active"
-    } else {
-      return ""
-    }
-  }
+//   getButtonClass(image:CarImage){
+//     if(image==this.carImages[0]){
+//       return "active"
+//     } else {
+//       return ""
+//     }
+//   }
   
-  setCurrentCar(car:Car){
-    this.currentCar=car;
-  }
-  getCurrentCarClass(car:Car){
-    if(car==this.currentCar){
-      return "list-group-item active";
-    }else{
-      return "list-group-item";
-    }
-  }
+//   setCurrentCar(car:Car){
+//     this.currentCar=car;
+//   }
+//   getCurrentCarClass(car:Car){
+//     if(car==this.currentCar){
+//       return "list-group-item active";
+//     }else{
+//       return "list-group-item";
+//     }
+//   }
 
 
-}
+ }

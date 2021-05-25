@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<!-- <div class="d-flex justify-content-center">
   <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
@@ -26,7 +26,7 @@
   </thead>
   <tbody style="width: 100;" >
     <tr (click)="setCurrentCar(car)"
-    routerLink="/carImages/car/{{car.carId}}" *ngFor="let car of cars | filter:filterText"  
+    routerLink="/carimages/car/{{car.carId}}" *ngFor="let car of cars | filter:filterText"  
      [class]="getCurrentCarClass(car)">
       <td>{{car.brandName }}</td>
       <td>{{car.modelYear}}</td>
@@ -37,3 +37,71 @@
   </tbody>
 </table>
 <h5 *ngIf="currentCar">{{currentCar.carName}} Seçtiniz</h5>
+
+
+
+ -->
+<!-- Page Title -->
+<header>
+    <app-navi></app-navi>
+  </header>
+
+<div class="section section-breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Ofis & Kırtasiye Ürünleri</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <div *ngIf="dataLoaded == false"  class="spinner-grow text-primary" role="status">
+	<span class="visually-hidden">Loading...</span>
+</div> -->
+
+
+<div  class="eshop-section section">
+	<div class="container">
+		<div class="row" >
+			<div routerLink="/cars/carDetail/{{car.carId}}" *ngFor="let car of cars" class="col-md-3 col-sm-6">
+				<!-- Product -->
+				<div  class="shop-item" >
+					<!-- Product Image -->
+					<div class="shop-item-image">
+					<a href="/cars/carDetail/{{car.carId}}"><img src="{{imageBasePath}}{{car.imagePath}}" alt="/carImages/{{car.imagePath}}"></a>
+					</div>
+					<!-- Product Title -->
+					<div class="title">
+						<h3><a href="#" >
+								<h4 style="font-weight: bold;">{{car.brandName }}</h4>
+							</a></h3>
+					</div>
+					<!-- Product Available Colors-->
+					<div class="colors">
+						<span class="color-white"></span>
+						<span class="color-black"></span>
+						<span class="color-blue"></span>
+						<span class="color-orange"></span>
+						<span class="color-green"></span>
+					</div>
+					<!-- Product Price-->
+					<div class="price">
+						<h3>{{car.dailyPrice}} ₺</h3>
+					</div>
+					<!-- Add to Cart Button -->
+					<div class="actions">
+						<a href="/cars/carDetail/{{car.carId}}" ><button 
+							routerLink="/cars/carDetail/{{car.carId}}" type="button" style="width: 70%; height: 40%;"
+								class="btn btn-dark"><b>Hızlı İncele</b></button> </a>
+					</div>
+				</div>
+				<!-- End Product -->
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

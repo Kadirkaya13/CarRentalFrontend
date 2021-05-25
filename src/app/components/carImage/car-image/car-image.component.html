@@ -1,4 +1,4 @@
-<h3 class="d-flex justify-content-center">CAR DETAILS</h3>
+<!-- <h3 class="d-flex justify-content-center">CAR DETAILS</h3>
 
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -48,4 +48,103 @@
     <br>
 <hr>
 
-<app-rental></app-rental>
+<app-rental></app-rental> -->
+
+
+
+
+
+
+<!-- Page Title -->
+<header>
+  <app-navi></app-navi>
+</header>
+<div class="section">
+  <div class="container">
+      <div class="row">
+          <!-- Product Image & Available Colors -->
+          <div class="col-sm-6">
+              <div *ngFor="let car of cars" class="product-image-large">
+                  <img src="{{imageBasePath}}{{car.imagePath}}" alt="{{imageBasePath}}{{car.imagePath}}" />
+              </div>
+              <div class="colors">
+                  <span class="color-white"></span>
+                  <span class="color-black"></span>
+                  <span class="color-blue"></span>
+                  <span class="color-orange"></span>
+                  <span class="color-green"></span>
+              </div>
+          </div>
+          
+          <!-- End Product Image & Available Colors -->
+          <!-- Product Summary & Options -->
+          <div *ngFor="let car of cars" class="col-sm-6 product-details">
+              <h1 style="width: 45px; width: 70%;">{{car.carName}}</h1>
+              <div class="price"><span class="price-was">{{ car.dailyPrice }} ₺</span> {{ car.dailyPrice }} ₺</div>
+              <h5>Hızlı Genel Bakış</h5>
+              <p style="width: 90%; font-size: 15px;" >
+                  {{ car.description  }} 
+              </p>
+              <table class="shop-item-selections">
+                  <!-- Quantity -->
+                  <tr>
+
+
+                      <div>
+                          <td style="width: 70px;"> <label for="stockQuantity">
+                                  <h5 style="color: grey;"> Model yılı</h5>
+                              </label></td>
+                          <td *ngFor="let car of cars">
+                              <h5 style="color: gray;"> {{ car.modelYear }}</h5>
+                          </td>
+                      </div>
+                  </tr>
+                  <!-- Add to Cart Button -->
+                  <tr>
+                      <td>&nbsp;</td>
+                      <td>
+                          <button type="button" class="btn btn-outline-success" style="width: 50%; font-size: 16px;"> Satın Al</button>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+          <!-- End Product Summary & Options -->
+
+          <!-- Full Description & Specification -->
+          <div *ngFor="let car of cars" class="col-sm-12">
+              <div class="tabbable">
+                  <!-- Tabs -->
+                  <ul class="nav nav-tabs product-details-nav">
+                      <li class="active">
+                          <a href="#tab1" data-toggle="tab">Açıklama</a>
+                      </li>
+                      <li><a href="#tab2" data-toggle="tab">Şartname</a></li>
+                  </ul>
+                  <!-- Tab Content (Full Description) -->
+                  <div class="tab-content product-detail-info">
+                      <div class="tab-pane active" id="tab1">
+                          <h3>Ürün Bilgileri</h3>
+                          <h4>
+                            {{ car.description  }}
+                          </h4><br>
+                          <h3>Ürün Özellikleri</h3>
+                          <ul style="font-size: 15px;">
+                              <li>
+                                   {{  car.description }}
+                              </li>
+                          </ul>
+                          
+                      </div>
+                      <!-- Tab Content (Specification) -->
+                      <div class="tab-pane" id="tab2">
+                          <table>
+                          </table>
+                             
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- End Full Description & Specification -->
+      </div>
+  </div>
+</div>

@@ -25,6 +25,11 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { AboutCompanyComponent } from './components/about-company/about-company.component';
+import { CarImageAddComponent } from './components/car-image-add/car-image-add.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 @NgModule({
@@ -47,6 +52,11 @@ import { RegisterComponent } from './components/register/register.component';
     BrandAddComponent,
     LoginComponent,
     RegisterComponent,
+    FooterComponent,
+    CarDetailComponent,
+    AboutCompanyComponent,
+    CarImageAddComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

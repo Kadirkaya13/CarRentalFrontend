@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navi',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navi.component.css']
 })
 export class NaviComponent implements OnInit {
-
-  constructor() { }
+  isLogin=false;
+  constructor(private authService:AuthService) {}
 
   ngOnInit(): void {
+    this.isLoggedIn()
   }
-
+  isLoggedIn(){
+    if (this.authService.isAuthenticated()){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

@@ -6,7 +6,6 @@ import { Car } from 'src/app/models/car';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car-service.service';
-import { CardService } from 'src/app/services/card.service';
 import { ColorService } from 'src/app/services/color.service';
 
 @Component({
@@ -35,13 +34,14 @@ export class CarAddComponent implements OnInit {
   }
   createCarAddForm(){
     this.carAddForm=this.formBuilder.group({
-      brandName:["",Validators.required],
-      colorName:["",Validators.required],
+      brandId:["",Validators.required],
+      colorId:["",Validators.required],
       carName:["",Validators.required],
       modelYear:["",Validators.required],
       dailyPrice:["",Validators.required],
       description:["",Validators.required],
       findeksNote:["",Validators.required],
+      image:["",Validators.required],
     })
   }
   add(){

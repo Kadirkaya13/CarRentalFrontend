@@ -1,0 +1,137 @@
+
+
+.cd-bg-video-wrapper {
+	background: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+
+/* https://codepen.io/dudleystorey/pen/knqyK */
+.cd-bg-video-wrapper video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+	background: url('../img/bangkok-city.jpg') no-repeat;
+	background-size: cover;
+	transition: 1s opacity;
+}
+
+.tm-white { color: #FFFFFF; }
+
+ul { padding: 0; margin: 0; }
+figure { margin: 0; }
+p:last-child { margin-bottom: 0; }
+a { color: #3f97c9; }
+a, button { transition: all 0.3s ease; }
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+.tm-section-margin-t { margin-top: 200px; }
+.tm-section-margin-t-small { margin-top: 150px; }
+
+.cd-hero-slider li:first-of-type,
+.cd-hero-slider li:nth-of-type(2),
+.cd-hero-slider li:nth-of-type(3),
+.cd-hero-slider li:nth-of-type(4) {
+    background: none;
+}
+
+.cd-hero-slider .cd-full-width { padding-top: 0; }
+
+
+
+/* Hero Slider */
+.cd-hero-slider { height: 100vh; }
+.cd-hero-slider li { list-style: none; }
+.tm-textbox { display: inline-block; }
+
+.cd-hero-slider h2, .cd-hero-slider p {
+	max-width: none;
+	width: 100%;
+}
+
+.cd-hero-slider p { color: white; }
+.cd-hero-slider .tm-bg-white p,
+.cd-hero-slider .tm-bg-white h2 { color: black; }
+
+.cd-hero-slider .tm-text { 
+	font-size: 15px;
+	 
+}
+
+.tm-home-container {
+	margin: 0 auto;
+	max-width: 900px;
+	width: 95%;
+}
+
+.tm-home-title-container,
+.tm-home-description-container {
+	width: 100%;
+}
+
+.tm-home-title-container {
+	background-color: #d61717;
+	border: 1px solid rgb(14, 13, 13);
+	margin-bottom: 0;
+	padding: 20px;
+}
+
+.tm-bg-dark-blue { background-color: #1A2D4B; }
+.tm-bg-white { 
+	background-color: white; 
+	color: black;
+}
+.tm-bg-brown { background-color: #856729; }
+.tm-bg-dark-brown { background-color: #5a471c; }
+.tm-home-description-container { padding: 70px; }
+
+.tm-home-container-bg {
+	background-color: rgba(10, 31, 148, 0.904);
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 45px;
+    height: 94%;
+}
+
+.tm-home-container-outer {
+    position: relative;
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.cd-hero-slider h2.tm-text-title {	
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* About */
+.tm-white-header-container { width: 100%; }
+
+.tm-white-header-container .tm-text-title {
+	padding: 25px 40px 60px;
+    font-size: 3rem;
+}
+
+.tm-white-header-body {
+	width: 96%;
+    display: block;
+    margin: -40px auto 0;
+}
+

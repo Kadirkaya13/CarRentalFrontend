@@ -1,0 +1,39 @@
+<header>
+    <app-navi></app-navi>
+  </header>
+  
+<body>
+<div class="constant">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Marka ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carImagesAddForm">
+                    <div class="mb-3">
+                        <label for="carId">Araç id</label>
+                        <div class="form-group">
+                            <input type="text" id="carId" formControlName="carId"
+                            class="form-control" placeholder="Araç id">
+                        </div>
+                    </div>
+                </form>
+                <form [formGroup]="carImagesAddForm">
+                    <div class="mb-3">
+                        <label for="imagePath">Araç resimi</label>
+                        <div class="form-group">
+                            <input type="file" id="imagePath" formControlName="imagePath"
+                            class="form-control" placeholder="Resim yolu">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-success" (click)="add()">Ekle</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>

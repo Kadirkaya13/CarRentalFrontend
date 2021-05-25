@@ -1,0 +1,141 @@
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div *ngFor="let image of carImages let i = index" class="carousel-item active"
+              [ngClass]="{'active' :i == 0}">
+              <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="currentCar" class=" row">
+      <div class="col-md-5">
+        <div class="row">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Marka</th>
+                <td>{{currentCar.brandName}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Model</th>
+                <td>{{currentCar.modelYear}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Günlük Fiyat</th>
+                <td>{{currentCar.dailyPrice}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Açıklama</th>
+                <td>{{currentCar.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+
+
+  <!-- Page Title -->
+<header>
+    <app-navi></app-navi>
+  </header>
+  <div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Product Image & Available Colors -->
+            <div class="col-sm-6">
+                <div *ngFor="let image of carImages let i = index" class="product-image-large carousel-item active"
+                [ngClass]="{'active' :i == 0}" >
+                    <img src="{{imageBasePath}}{{currentCar.imagePath}}" alt="{{imageBasePath}}{{currentCar.imagePath}}" />
+                </div>
+                <div class="colors">
+                    <span class="color-white"></span>
+                    <span class="color-black"></span>
+                    <span class="color-blue"></span>
+                    <span class="color-orange"></span>
+                    <span class="color-green"></span>
+                </div>
+            </div>
+            
+            <!-- End Product Image & Available Colors -->
+            <!-- Product Summary & Options -->
+            <div *ngIf="currentCar" class="col-sm-6 product-details">
+                <h1 style="width: 45px; width: 70%;">{{currentCar.carName}}</h1>
+                <div class="price"><span class="price-was">{{ currentCar.dailyPrice }} ₺</span> {{ currentCar.dailyPrice }} ₺</div>
+                <h5>Hızlı Genel Bakış</h5>
+                <p style="width: 90%; font-size: 15px;" >
+                    {{ currentCar.description  }} 
+                </p>
+                <table class="shop-item-selections">
+                    <!-- Quantity -->
+                    <tr>
+  
+  
+                        <div>
+                            <td style="width: 70px;"> <label for="stockQuantity">
+                                    <h5 style="color: grey;"> Model yılı</h5>
+                                </label></td>
+                            <td *ngIf="currentCar">
+                                <h5 style="color: gray;"> {{ currentCar.modelYear }}</h5>
+                            </td>
+                        </div>
+                    </tr>
+                    <!-- Add to Cart Button -->
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <button routerLink="/creditcard/rental" type="button" class="btn btn-outline-success" style="width: 50%; font-size: 16px;"> Kirala</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- End Product Summary & Options -->
+  
+            <!-- Full Description & Specification -->
+            <div *ngIf="currentCar" class="col-sm-12">
+                <div class="tabbable">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs product-details-nav">
+                        <li class="active">
+                            <a href="#tab1" data-toggle="tab">Açıklama</a>
+                        </li>
+                        <li><a href="#tab2" data-toggle="tab">Şartname</a></li>
+                    </ul>
+                    <!-- Tab Content (Full Description) -->
+                    <div class="tab-content product-detail-info">
+                        <div class="tab-pane active" id="tab1">
+                            <h3>Ürün Bilgileri</h3>
+                            <h4>
+                              {{ currentCar.brandName  }}
+                              {{  currentCar.description }}
+                            </h4><br>
+                            <h3>Ürün Özellikleri</h3>
+                            <ul style="font-size: 15px;">
+                                <li>
+                                     {{  currentCar.description }}
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Tab Content (Specification) -->
+                        <div class="tab-pane" id="tab2">
+                            <table>
+                            </table>
+                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Full Description & Specification -->
+        </div>
+    </div>
+  </div>
+  <footer>
+    <app-footer></app-footer> 
+ </footer>

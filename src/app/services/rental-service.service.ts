@@ -19,9 +19,9 @@ export class RentalService{
     let newPath  =environment.apiUrl+"rental/getrentaldetail";
     return this.httpClient.get<ListResponseModel<Rental>>(newPath);
   }
-  addRental(rental:Rental){
+  addRental(rental:Rental):Observable<ResponseModel>{
     let newPath = environment.apiUrl + "rentals/add"
-    this.httpClient.post(newPath,rental).subscribe()
+    return this.httpClient.post<ResponseModel>(newPath,rental);
   }
   isRentable(rental:Rental):Observable<ResponseModel>{
     let newPath = environment.apiUrl + "rentals/isrentable"
