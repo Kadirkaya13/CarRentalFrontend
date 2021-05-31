@@ -14,7 +14,7 @@ export class CarImageAddComponent implements OnInit {
   imageAddForm:FormGroup;
   productFilter: Number;
   cars:Car[]=[];
-  selectedFile : File = null
+  selectedFile : File = null;
 
   constructor(private carService:CarService,
               private formBuilder:FormBuilder,

@@ -41,7 +41,6 @@ export class CarAddComponent implements OnInit {
       dailyPrice:["",Validators.required],
       description:["",Validators.required],
       findeksNote:["",Validators.required],
-      image:["",Validators.required],
     })
   }
   add(){
