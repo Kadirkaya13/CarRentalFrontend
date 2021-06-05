@@ -14,7 +14,7 @@ export class CarDetailComponent implements OnInit {
   currentCar:Car;
   carImages:CarImage[];
   dataLoaded=false;
-  imageBasePath="https://localhost:44372/Images/" 
+  imageBasePath="http://kadir13-001-site1.btempurl.com/Images/" 
   
   constructor(
     private carService:CarService,
