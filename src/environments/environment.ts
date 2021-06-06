@@ -6,6 +6,7 @@ export const environment = {
   // https://localhost:44372/
   apiUrl:'kadirarackiralama.website/api/',
   imageBasePath:'kadirarackiralama.website/Images/',
+  
   production: false
   
 };
