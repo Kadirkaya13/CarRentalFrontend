@@ -4,8 +4,8 @@
 
 export const environment = {
   // https://localhost:44372/
-  apiUrl:'https://car-rental-frontend.vercel.app/api/',
-  imageBasePath:'https://car-rental-frontend.vercel.app/Images/',
+  apiUrl:'kadirarackiralama.website/api/',
+  imageBasePath:'kadirarackiralama.website/Images/',
   production: false
   
 };
