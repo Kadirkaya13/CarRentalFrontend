@@ -4,6 +4,7 @@ import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-car-detail',
@@ -14,7 +15,7 @@ export class CarDetailComponent implements OnInit {
   currentCar:Car;
   carImages:CarImage[];
   dataLoaded=false;
-  imageBasePath="https://kadirarackiralama.website/Images/" 
+  imageBasePath=environment.imageBasePath
   
   constructor(
     private carService:CarService,

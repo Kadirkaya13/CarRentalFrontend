@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car-service.service';
+import { environment } from 'src/environments/environment';
 import { ColorComponent } from '../color/color.component';
 
 @Component({
@@ -16,7 +17,7 @@ export class CarComponent implements OnInit {
   currentCar:Car;
   dataLoaded=false;
   filterText="";
-  imageBasePath="https://kadirarackiralama.website/Images/" 
+  imageBasePath=environment.imageBasePath
 
   constructor(private carService:CarService,
     private activetedRoute:ActivatedRoute,

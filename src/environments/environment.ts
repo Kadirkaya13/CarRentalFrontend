@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl:'https://kadirarackiralama.website/api/',
+  // https://localhost:44372/
+  apiUrl:'https://car-rental-frontend.vercel.app/api/',
+  imageBasePath:'https://car-rental-frontend.vercel.app/Images/',
   production: false
+  
 };
 
 /*
