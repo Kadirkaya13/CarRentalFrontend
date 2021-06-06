@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +14,7 @@ import { UserComponent } from './components/user/user.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CarImageComponent } from './components/carImage/car-image/car-image.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 import {ToastrModule} from "ngx-toastr";
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
@@ -58,6 +60,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     AboutCompanyComponent,
     CarImageAddComponent,
     FileUploadComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

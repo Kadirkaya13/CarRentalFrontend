@@ -1,3 +1,4 @@
+import { ContactComponent } from './components/contact/contact.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutCompanyComponent } from './components/about-company/about-company.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"cars/carDetail/:carId",component:CarDetailComponent},
   {path:"about/company",component:AboutCompanyComponent},
+  {path:"contact",component:ContactComponent}
   
 
 ];
