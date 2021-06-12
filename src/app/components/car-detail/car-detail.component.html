@@ -52,7 +52,7 @@
             <div class="col-sm-6">
                 <div *ngFor="let image of carImages let i = index" class="product-image-large carousel-item active"
                 [ngClass]="{'active' :i == 0}" >
-                    <img src="{{imageBasePath}}{{currentCar.imagePath}}" alt="{{imageBasePath}}{{currentCar.imagePath}}" />
+                    <img style="width: 100%; height: 100%;" src="{{imageBasePath}}{{currentCar.imagePath}}" alt="{{imageBasePath}}{{currentCar.imagePath}}" />
                 </div>
                 <div class="colors">
                     <span class="color-white"></span>
@@ -67,7 +67,7 @@
             <!-- Product Summary & Options -->
             <div *ngIf="currentCar" class="col-sm-6 product-details">
                 <h1 style="width: 45px; width: 70%;">{{currentCar.carName}}</h1>
-                <div class="price"><span class="price-was">{{ currentCar.dailyPrice }} ₺</span> {{ currentCar.dailyPrice }} ₺</div>
+                <div class="price"> <!--<span class="price-was">{{ currentCar.dailyPrice }} ₺</span>--> {{ currentCar.dailyPrice }} ₺</div>
                 <h5>Hızlı Genel Bakış</h5>
                 <p style="width: 90%; font-size: 15px;" >
                     {{ currentCar.description  }} 

@@ -55,13 +55,6 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- <div *ngIf="dataLoaded == false"  class="spinner-grow text-primary" role="status">
-	<span class="visually-hidden">Loading...</span>
-</div> -->
-
-
 <div  class="eshop-section section">
 	<div class="container">
 		<div class="row" >
@@ -70,7 +63,7 @@
 				<div  class="shop-item" >
 					<!-- Product Image -->
 					<div class="shop-item-image">
-					<a href="/cars/carDetail/{{car.carId}}"><img src="{{imageBasePath}}{{car.imagePath}}" alt="/carImages/{{car.imagePath}}"></a>
+					<a href="/cars/carDetail/{{car.carId}}"><img style="height: 100%; " src="{{imageBasePath}}{{car.imagePath}}" alt="/carImages/{{car.imagePath}}"></a>
 					</div>
 					<!-- Product Title -->
 					<div class="title">
@@ -80,11 +73,7 @@
 					</div>
 					<!-- Product Available Colors-->
 					<div class="colors">
-						<span class="color-white"></span>
-						<span class="color-black"></span>
-						<span class="color-blue"></span>
-						<span class="color-orange"></span>
-						<span class="color-green"></span>
+						<h5 style="font-weight: bold;">{{car.carName}} </h5> 
 					</div>
 					<!-- Product Price-->
 					<div class="price">
